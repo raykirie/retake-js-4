@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Форма для банковской карточки</title>
+</head>
+<body>
+    <h1>Информация о банковской карточке</h1>
+    <form id="bankCardForm">
+        <label for="cardNumber">Номер карточки:</label>
+        <input type="text" id="cardNumber" name="cardNumber" required><br><br>
+
+        <label for="cardHolder">Владелец карточки:</label>
+        <input type="text" id="cardHolder" name="cardHolder" required><br><br>
+
+        <label for="expirationDate">Срок действия:</label>
+        <input type="text" id="expirationDate" name="expirationDate" placeholder="ММ/ГГ" required><br><br>
+
+        <label for="cvv">CVV код:</label>
+        <input type="text" id="cvv" name="cvv" required><br><br>
+
+        <input type="submit" value="Сохранить">
+    </form>
+
+    <h2>Сохраненная информация о карточке:</h2>
+    <p id="savedInfo"></p>
+
+    <script>
+        document.getElementById("bankCardForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+         
+            var cardNumber = document.getElementById("cardNumber").value;
+            var cardHolder = document.getElementById("cardHolder").value;
+            var expirationDate = document.getElementById("expirationDate").value;
+            var cvv = document.getElementById("cvv").value;
+
+            
+            var savedInfo = "Номер карточки: " + cardNumber + "<br>";
+            savedInfo += "Владелец карточки: " + cardHolder + "<br>";
+            savedInfo += "Срок действия: " + expirationDate + "<br>";
+            savedInfo += "CVV код: " + cvv;
+            document.getElementById("savedInfo").innerHTML = savedInfo;
+        });
+    </script>
+</body>
+</html>
